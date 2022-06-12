@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
+
 class Movie extends Component {
 
     rentAMovie = () => this.props.rentAMovie(this.props.movie.id)
@@ -11,7 +12,7 @@ class Movie extends Component {
         return (
             <div className="movie-box" key={currentMovie.id}>
                 <Link to={`/movies/${currentMovie.id}`} movie={currentMovie}>
-                    <img className="moviePicture" src={currentMovie.img}></img>
+                    <img className="movieBoxPicture" src={currentMovie.img}></img>
                 </Link>
                 <i className={
                     currentMovie.isRented ?

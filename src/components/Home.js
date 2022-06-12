@@ -10,7 +10,7 @@ class Home extends Component {
                 {users.map(u => {
                     return (<Link to="/catalog" key={u.name}>
                         <div
-                         className={`user-box ${u.img}`}>
+                         className={`${u.img} user-box `}>
                              {u.name}
                         </div>
                 </Link>)

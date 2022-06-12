@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import Movie from './Movie';
 
 
+
 class Catalog extends Component {
     render() {
         let movies = this.props.movies
         return (<div id="catalog">
-            <input value={this.props.text} onChange={this.props.updateText}></input>
+            <input value={this.props.searchedWord} onChange={this.props.updateSearched}></input>
             <button>Search</button>
             <div>Budget:{this.props.budget}</div>
             {this.props.budget < 100 ?

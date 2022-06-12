@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      text: "",
+      searchedWord: "",
       budget: 100,
       users: [
         { name: "Edward", img: "green" },
@@ -31,21 +31,23 @@ class App extends Component {
   }
 
   rentAMovie = (id) => {
-    const movies = [...this.state.movies]
-    const currentMovie = movies.find(m => m.id === id);
+    let movies = [...this.state.movies]
+    ,currentMovie = movies.find(m => m.id === id);
     currentMovie.isRented = !currentMovie.isRented
-    const budget = this.state.budget + (currentMovie.isRented ? -10 : 10);
+    let budget = this.state.budget + (currentMovie.isRented ? -10 : 10);
+    
     this.setState({
       movies,
       budget
     })
   }
 
-  updateText = (event) => {
+  updateSearched = (event) => {
     let filteredMovies = [...this.state.movies]
     filteredMovies = filteredMovies.filter(m => m.title.toLowerCase().match(event.target.value.toLowerCase()))
+    
     this.setState({
-      text: event.target.value,
+      searchedWord: event.target.value,
       filteredMovies: filteredMovies
     })
   }
@@ -54,9 +56,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='bodyImg'>
           <div className="nav-bar">
-            <div className="main-links">
+            <div id="main-links">
               <Link to="/">Home</Link>
               <Link to="/catalog">Catalog</Link>
             </div>
@@ -64,8 +66,8 @@ class App extends Component {
           </div>
           <Route path="/" exact render={() => <Home users={this.state.users} />} />
           <Route path="/catalog" exact render={() =>
-            <Catalog updateText={this.updateText} text={this.state.text}
-              rentAMovie={this.rentAMovie} budget={this.state.budget} movies={this.state.text === "" ?
+            <Catalog updateSearched={this.updateSearched} searchedWord={this.state.searchedWord}
+              rentAMovie={this.rentAMovie} budget={this.state.budget} movies={this.state.searchedWord == "" ?
                 this.state.movies : this.state.filteredMovies} />} />
           <Route path="/movies/:id" exact render={({ match }) =>
             <MovieDetails movies={this.state.movies} match={match} />} />

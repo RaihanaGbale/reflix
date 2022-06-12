@@ -1,13 +1,30 @@
 *{
-    background-color: black;
+    background-color: transparent;
     color: white
   }
+  #main-links > a{
+    margin: 10px;
+    color: #34495e;
+    text-shadow: -1px -1px 0 #ecf0f1, 1px -1px 0 #ecf0f1, -1px 1px 0 #ecf0f1, 1px 1px 0 #ecf0f1;
+}
   .nav-bar{
     display: grid;
     grid-template-columns: 1fr 8fr;
     padding: 10px;
   }
+.bodyImg{
+  background-image: url(https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2021/02/04/USATODAY/usatsports/red-movie-theater-seats.jpg?width=2120&height=1192&fit=crop&format=pjpg&auto=webp);
+   height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
   .user-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -26,9 +43,9 @@
   .yellow{
     background-color: #ff7675;
   }
-  .moviePicture{
-    height: 100px;
-    width: 100px;
+  .movieBoxPicture{
+    height: 200px;
+    width: 200px;
   }
   .user-box{
     justify-content: center;
@@ -36,6 +53,11 @@
     height: 100px;
     border-radius: 20px;
     display: grid;
+    line-height: 150px;
+    font-size: 2em;
+    color: #ecf0f1;
+    text-shadow: -1px -1px 0 #2c3e50, 1px -1px 0 #2c3e50, -1px 1px 0 #2c3e50, 1px 1px 0 #2c3e50;
+
   }
   .descTest{
     font-size: large;
@@ -54,8 +76,9 @@
     font-family:'Courier New', Courier, monospace;
   }
   .logo{
+    font-size: larger;
     text-align: right;
-    color: red;
+    color: lightskyblue;
     font-weight: bold;
   }
   .main-links{
@@ -72,13 +95,14 @@
   
   .movie-box{
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
   }
   
   .button{
     position: absolute;
   right:0px;
-  background-color: transparent;
+  background-color: gray;
   }
   
